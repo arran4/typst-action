@@ -43,13 +43,16 @@ jobs:
       - name: Typst
         uses: lvignoli/typst-action@main
         with:
+          options: |
+            --font-path
+            fonts
           source_file: |
             first_file.typ
             second_file.typ
             third_and_final_file.typ
 
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: *.pdf
